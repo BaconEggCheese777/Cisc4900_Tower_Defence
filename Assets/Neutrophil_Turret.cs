@@ -22,7 +22,8 @@ public class Neutrophil_Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Fire();
+        FindTargetAndFire();
+        //Fire();
     }
     void Fire()
     {                       
@@ -47,5 +48,27 @@ public class Neutrophil_Turret : MonoBehaviour
             cooldownRemain -= Time.deltaTime;
         }
 
+    }
+
+    void haltFire()
+    {
+        Audio.Stop();
+        audioPlaying = false;
+        animator.SetBool("isFiring", false);
+    }
+
+    void FindTargetAndFire()
+    {
+        if (gameObject.TryGetComponent<Target_Selector>(out Target_Selector targeter))
+        {
+            if (targeter.isFiring == true)
+            {
+                Fire();
+            }
+            else
+            {
+                haltFire();
+            }
+        }
     }
 }

@@ -13,25 +13,21 @@ public class B_Turret : MonoBehaviour
     public AudioSource Audio;
     private bool audioPlaying =  false;
 
-    private bool startDemo = false;  // delete after demo
 
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(WaitaBit());
+        
     }
 
     // Update is called once per frame
     void Update()
-    {   
-        // delete after demo
-        if (startDemo == true)
-        {
-            Fire();
-        }
-        
-        
+    {
+
+        FindTargetAndFire();
+
+
     }
 
     void Fire()
@@ -59,13 +55,26 @@ public class B_Turret : MonoBehaviour
                 
     }
 
-    // This function will be deleted after demo.
-    IEnumerator WaitaBit()
+    void haltFire()
     {
-        yield return new WaitForSeconds(3);
-        startDemo = true;
+        Audio.Stop();
+        audioPlaying = false;
+        animator.SetBool("isFiring", false);
     }
 
-    // collision method should set animator isFiring to false
+    void FindTargetAndFire()
+    {
+        if (gameObject.TryGetComponent<Target_Selector>(out Target_Selector targeter))
+        {
+            if (targeter.isFiring == true)
+            {
+                Fire();
+            }
+            else
+            {
+                haltFire();
+            }
+        }
+    }
 
 }

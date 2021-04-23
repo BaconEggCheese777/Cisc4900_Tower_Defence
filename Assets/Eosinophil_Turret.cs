@@ -27,14 +27,9 @@ public class Eosinophil_Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //FireBurst();
         
-        //if (isFiring == false)
-        //{
-        //   StartCoroutine(FireBurst());
-        //}
-        
-
-       FireAuto();
+        FindTargetAndFire();
     }
 
     void FireAuto()
@@ -62,7 +57,7 @@ public class Eosinophil_Turret : MonoBehaviour
 
     }
 
-    public IEnumerator FireBurst()
+    public IEnumerator FireBurstFunc()
     {
         isFiring = true;    // This needs to be added so Update() waits before calling this function again
         float spread = Random.Range(-1, 1);
@@ -78,5 +73,36 @@ public class Eosinophil_Turret : MonoBehaviour
         animator.SetTrigger("Stop");
         yield return new WaitForSeconds(timeBetweenBurst); // wait for next burst
         isFiring = false;
+    }
+
+    void FireBurst()
+    {
+        if (isFiring == false)
+        {
+            StartCoroutine(FireBurstFunc());
+        }
+    }
+
+    void haltFire()
+    {
+        burstAudio.Stop();
+        autoAudio.Stop();
+        audioPlaying = false;
+        animator.SetBool("isFiring", false);
+    }
+
+    void FindTargetAndFire()
+    {
+        if (gameObject.TryGetComponent<Target_Selector>(out Target_Selector targeter))
+        {
+            if (targeter.isFiring == true)
+            {
+                FireBurst();    // This will need to be changed later. Needs to swap fire modes based on enemy type
+            }
+            else
+            {
+                haltFire();
+            }
+        }
     }
 }

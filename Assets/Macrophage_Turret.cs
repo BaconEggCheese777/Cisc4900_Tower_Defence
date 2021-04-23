@@ -7,7 +7,7 @@ public class Macrophage_Turret : MonoBehaviour
     public GameObject macrophage_proj;
     private GameObject proj;
     public Transform shotspawn;
-    private float cooldown = 2f;
+    private float cooldown = 10f;
     private float cooldownRemain;
     public Animator animator;
     public AudioSource Audio;
@@ -21,7 +21,7 @@ public class Macrophage_Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Fire();
+        FindTargetAndFire();
     }
 
     void Fire()
@@ -40,5 +40,25 @@ public class Macrophage_Turret : MonoBehaviour
             animator.SetTrigger("Stop");
         }
 
+    }
+
+    void haltFire()
+    {
+        Audio.Stop();
+    }
+
+    void FindTargetAndFire()
+    {
+        if (gameObject.TryGetComponent<Target_Selector>(out Target_Selector targeter))
+        {
+            if (targeter.isFiring == true)
+            {
+                Fire();
+            }
+            else
+            {
+                haltFire();
+            }
+        }
     }
 }

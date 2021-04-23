@@ -7,7 +7,7 @@ public class T_Turret : MonoBehaviour
     public GameObject T_proj;
     private GameObject proj;
     public Transform shotspawn;
-    private float cooldown = 5f;
+    private float cooldown = 4f;
     private float cooldownRemain;
     public Animator animator;
     public AudioSource Audio;
@@ -22,7 +22,7 @@ public class T_Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Fire();
+        FindTargetAndFire();
     }
 
     void Fire()
@@ -42,6 +42,25 @@ public class T_Turret : MonoBehaviour
 
         }
 
+    }
+    void haltFire()
+    {
+        Audio.Stop();
+    }
+
+    void FindTargetAndFire()
+    {
+        if (gameObject.TryGetComponent<Target_Selector>(out Target_Selector targeter))
+        {
+            if (targeter.isFiring == true)
+            {
+                Fire();
+            }
+            else
+            {
+                haltFire();
+            }
+        }
     }
 
 
