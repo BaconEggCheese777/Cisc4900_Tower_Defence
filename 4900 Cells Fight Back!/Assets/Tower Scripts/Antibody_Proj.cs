@@ -24,6 +24,7 @@ public class Antibody_Proj : MonoBehaviour
         if (collision.TryGetComponent<EnemyMoveLeft>(out EnemyMoveLeft enemy))
         {
             enemy.damageEnemy(1);
+            enemy.slow(0.1f, 10f);
             speed = 0;
             anim.SetTrigger("madeContact");
             //GetComponent<SpriteRenderer>().enabled = false;

@@ -66,6 +66,7 @@
     <Compile Include="Assets\Assets2\Scripts\backgroundLoop.cs" />
     <Compile Include="Assets\UI Sprites\Turret_Preview.cs" />
     <Compile Include="Assets\Tower Scripts\Macrophage_Turret.cs" />
+    <Compile Include="Assets\UI Sprites\MouseOver.cs" />
     <Compile Include="Assets\Assets2\Mobs\Script 1\EnemyMovement.cs" />
     <Compile Include="Assets\Tower Scripts\Neutrophil_Turret.cs" />
     <Compile Include="Assets\Tower Scripts\Turret_Collider.cs" />
@@ -74,10 +75,10 @@
     <Compile Include="Assets\UI Sprites\BuySell_Button.cs" />
     <Compile Include="Assets\Tower Scripts\Macrophage_Projectile.cs" />
     <Compile Include="Assets\Tower Scripts\Eosinophil_Proj.cs" />
+    <Compile Include="Assets\UI Sprites\Camera_Movement.cs" />
     <Compile Include="Assets\Assets2\Mobs\Script 1\Wave.cs" />
     <Compile Include="Assets\Tower Scripts\B_Turret.cs" />
     <Compile Include="Assets\Assets2\Mobs\Script 1\EnemyMoveLeft.cs" />
-    <Compile Include="Assets\UI Sprites\NewBehaviourScript.cs" />
     <Compile Include="Assets\Tower Scripts\Target_Selector.cs" />
   </ItemGroup>
   <ItemGroup>

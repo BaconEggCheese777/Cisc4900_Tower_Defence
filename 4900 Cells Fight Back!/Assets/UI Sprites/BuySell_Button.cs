@@ -36,26 +36,31 @@ public class BuySell_Button : MonoBehaviour
     public void spawnTurretPreview1()
     {
         Instantiate(turret1, Input.mousePosition, transform.rotation);
+        transform.parent.gameObject.SetActive(false);
     }
 
     public void spawnTurretPreview2()
     {
         Instantiate(turret2, Input.mousePosition, transform.rotation);
+        transform.parent.gameObject.SetActive(false);
     }
 
     public void spawnTurretPreview3()
     {
         Instantiate(turret3, Input.mousePosition, transform.rotation);
+        transform.parent.gameObject.SetActive(false);
     }
 
     public void spawnTurretPreview4()
     {
         Instantiate(turret4, Input.mousePosition, transform.rotation);
+        transform.parent.gameObject.SetActive(false);
     }
 
     public void spawnTurretPreview5()
     {
         Instantiate(turret5, Input.mousePosition, transform.rotation);
+        transform.parent.gameObject.SetActive(false);
     }
 
     public void buyTurretSpot()

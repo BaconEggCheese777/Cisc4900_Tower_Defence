@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1087233921654122648}
   - component: {fileID: 242634307502639050}
   m_Layer: 0
-  m_Name: Tower 4_0 1
+  m_Name: Tower 4_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1469532817
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -3384107634686620113, guid: 73a9d64f0d4dea04b9fd6b30b5376b95,
     type: 3}

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyMoveLeft : MonoBehaviour
 {
-	private float speed = 0.01f;
+	private float speed = 0.5f;
     private float speedMod;
     private float slowCountdown = 0;
 	public bool MoveLeft;
-    public int hp = 100;
+    private int hp = 1000;
 
     // Start is called before the first frame update
     void Start()
